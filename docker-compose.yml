@@ -1,0 +1,13 @@
+services:
+  api:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      CRIP_ENV: local
+      CRIP_DEMO_KEY: ${CRIP_DEMO_KEY:-local-synthetic-demo-key}
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
